@@ -1,0 +1,63 @@
+<h2 class="page-header">Register</h2>
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+<form method="post" action="/users/register" id="register">
+   <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" placeholder="Name" name="name" id="name">
+  </div>
+  <div class="form-group">
+    <label>Username</label>
+    <input type="text" class="form-control" placeholder="Username" name="username" id="username">
+  </div>
+   <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" placeholder="Email" name="email" id="email">
+  </div>
+    <div class="form-group">
+        <label>Mobile No</label>
+        <input type="number" class="form-control" placeholder="9876543210" name="mobile" id="mobile">
+    </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" placeholder="Password" name="password" id="password">
+  </div>
+  <div class="form-group">
+    <label>Confirm Password</label>
+    <input type="password" class="form-control" placeholder="Password" name="password2" id="password2">
+  </div>
+    <div class="form-group">
+        <div class="g-recaptcha" data-sitekey="6LfjezUUAAAAAGmkYd7GKA3wMK2BMRuk91EqMTYW"></div>
+    </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<!--<script>
+    document.getElementById('register').addEventListener('submit', submitForm);
+    function submitForm(e){
+        e.preventDefault();
+        var name = document.querySelector('#name').value;
+        var username = document.querySelector('#username').value;
+        var email = document.querySelector('#mobile').value;
+        var mobile = document.querySelector('#email').value;
+        var password = document.querySelector('#password').value;
+        var password2 = document.querySelector('#password2').value;
+        var captcha = document.querySelector('#g-recaptcha-response').value;
+        fetch('/register', {
+            method:'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-type':'application/json'
+            },
+            body:JSON.stringify({name:name, email: email, username :username, mobile:mobile, password: password, password2:password2,captcha: captcha})
+        })
+                .then(function(res){res.json()})
+    .then(function(data) {
+            console.log(data);
+        alert(data.msg);
+    });
+    }
+</script>-->
